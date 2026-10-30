@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Ativos - MVP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>💼 Gestor de Ativos (Bloco Avançado)</h1>
+            <p>Controlo centralizado de ativos por entidade e valor.</p>
+        </header>
+
+        <!-- Form de Entrada de Ativos -->
+        <section class="card">
+            <h2>Registar Novo Ativo</h2>
+            <form id="asset-form">
+                <div class="form-group">
+                    <label for="asset-type">Tipo de Ativo:</label>
+                    <select id="asset-type" required>
+                        <option value="">Selecione...</option>
+                        <option value="Ações">Ações</option>
+                        <option value="Imóveis">Imóveis</option>
+                        <option value="Criptomoedas">Criptomoedas</option>
+                        <option value="Renda Fixa">Renda Fixa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="entity">Entidade / Instituição:</label>
+                    <input type="text" id="entity" placeholder="Ex: Corretora Nacional, Banco, Wallet" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Valor / Montante (AOA/$):</label>
+                    <input type="number" id="amount" step="0.01" placeholder="0.00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Observações / Detalhes:</label>
+                    <textarea id="notes" placeholder="Notas adicionais (ex: prazo de 3m, 6m)..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Guardar Ativo</button>
+            </form>
+        </section>
+
+        <!-- Resumo por Entidade -->
+        <section class="card">
+            <h2>Resumo por Entidade</h2>
+            <div id="entity-summary" class="summary-grid">
+                <!-- Preenchido via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Tabela de Ativos e Ações -->
+        <section class="card">
+            <div class="section-header">
+                <h2>Lista de Ativos Registados</h2>
+                <button id="export-btn" class="btn-secondary">📧 Gerar Relatório</button>
+            </div>
+            
+            <table id="assets-table">
+                <thead>
+                    <tr>
+                        <th>Ativo</th>
+                        <th>Entidade</th>
+                        <th>Valor</th>
+                        <th>Notas</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="assets-list">
+                    <!-- Preenchido via JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
